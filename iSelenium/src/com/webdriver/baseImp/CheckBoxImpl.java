@@ -13,7 +13,7 @@ public class CheckBoxImpl implements iCheckBox {
 	WebElement element = driver.findElement(By.id(id));
 
 	@Override
-	public boolean isSelected(String id) {
+	public boolean isSelectedById(String id) {
 		element = driver.findElement(By.id(id));
 		boolean isSelected = false;
 		isSelected = element.isSelected();
@@ -21,15 +21,18 @@ public class CheckBoxImpl implements iCheckBox {
 	}
 
 	@Override
-	public boolean isEnabled(String id) {
+	public boolean isEnabledById(String id) {
 		boolean isEnabled = false;
+		element = driver.findElement(By.id(id));
 		isEnabled = element.isEnabled();
 		return isEnabled;
+
 	}
 
 	@Override
-	public boolean isDisabled(String id) {
+	public boolean isDisabledById(String id) {
 		boolean isDisabled = false;
+		element = driver.findElement(By.id(id));
 		isDisabled = element.isDisplayed();
 		System.out.println("h");
 		return isDisabled;
@@ -37,14 +40,15 @@ public class CheckBoxImpl implements iCheckBox {
 	}
 
 	@Override
-	public boolean isItChecked(String id) {
+	public boolean isItCheckedById(String id) {
 		boolean isItChecked = false;
+		element = driver.findElement(By.id(id));
 		element.isSelected();
 		return isItChecked;
 	}
 
 	@Override
-	public void doUnCheck(String id) {
+	public void doUnCheckById(String id) {
 		if (element.isSelected()) {
 			element.click();
 		} else {
@@ -54,13 +58,67 @@ public class CheckBoxImpl implements iCheckBox {
 	}
 
 	@Override
-	public void doCheck(String id) {
+	public void doCheckById(String id) {
 		if (element.isSelected()) {
 
 		} else {
 			element.click();
 		}
 
+	}
+
+	@Override
+	public boolean isEnabledByName(String name) {
+		boolean isEnabled = false;
+		element = driver.findElement(By.name(name));
+		isEnabled = element.isEnabled();
+		return isEnabled;
+	}
+
+	@Override
+	public boolean isDisabledByName(String name) {
+		boolean isDisabled = false;
+		element = driver.findElement(By.name(name));
+		isDisabled = element.isDisplayed();
+		return isDisabled;
+	}
+
+	@Override
+	public boolean isItCheckedByName(String name) {
+		boolean isItChecked = false;
+		element = driver.findElement(By.name(name));
+		isItChecked = element.isSelected();
+		return isItChecked;
+	}
+
+	@Override
+	public void doUnCheckByName(String name) {
+
+		if (element.isSelected()) {
+			element.click();
+		} else {
+
+		}
+
+	}
+
+	@Override
+	public void doCheckByName(String name) {
+		if (element.isSelected()) {
+
+		} else
+			element.click();
+	}
+
+	@Override
+	public boolean isSelectedByName(String name) {
+
+		element = driver.findElement(By.name(name));
+		if (element.isSelected()) {
+
+		} else
+			element.click();
+		return false;
 	}
 
 }

@@ -2,16 +2,28 @@ package com.access.ipages;
 
 public interface iCheckBox {
 
-	boolean isEnabled(String id);
+	boolean isDisabledById(String id);
 
-	boolean isDisabled(String id);
+	boolean isItCheckedById(String id);
 
-	boolean isItChecked(String id);
+	void doUnCheckById(String id);
 
-	void doUnCheck(String id);
+	void doCheckById(String id);
 
-	void doCheck(String id);
+	boolean isSelectedById(String id);
 
-	boolean isSelected(String id);
+	boolean isEnabledByName(String id);
+
+	boolean isDisabledByName(String id);
+
+	boolean isItCheckedByName(String id);
+
+	void doUnCheckByName(String id);
+
+	void doCheckByName(String id);
+
+	boolean isSelectedByName(String id);
+
+	boolean isEnabledById(String id);
 
 }
